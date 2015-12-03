@@ -1,0 +1,62 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	string option;
+	int r, c;
+	int A[5][5];
+	fstream myfile;
+	myfile.open("Text.txt");
+
+	for (int row = 0; row < 5; row++)
+	{
+		for (int col = 0; col < 5; col++)
+		{
+			myfile >> A[row][col];
+		}
+	}
+
+	for (int row = 0; row < 5; row++)
+	{
+		for (int col = 0; col < 5; col++)
+		{
+			cout << A[row][col] << " ";
+		}
+		cout << endl;
+	}
+
+
+	cout << "If you want to see a particular row type 2nd or a column type 3rd" << endl;
+	cin >> option;
+
+	if (option == "2nd")
+	{
+		cout << " Enter in which row you want to see " << endl;
+		cin >> r;
+
+		cout << " Your row values are ";
+		for (int col = 0; col < 5; col++)
+		{
+			cout << A[r-1][col] << " ";
+		}
+	}
+	
+	else if (option == "3rd")
+	{
+		cout << " Enter in which column you want to see " << endl;
+		cin >> c;
+
+		cout << " Your column values are ";
+		for (int row = 0; row < 5; row++)
+		{
+			cout << A[row][c - 1] << " ";
+		}
+	}
+	else
+		cout << "Your entry is invalid" << endl;
+
+
+}
