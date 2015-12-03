@@ -1,0 +1,43 @@
+#include <iostream>
+
+//#include <string>
+
+using namespace std;
+
+const int ARRAY_SIZE = 10;
+
+int BinaryToDecimal(char arr[], int endIndex);
+
+int main()
+
+{
+
+	char binaryRep[ARRAY_SIZE];
+
+	cout << "Please enter a sequence of 10 zeros/ones:";
+
+	for (int i = 0; i < ARRAY_SIZE; i++)
+
+		cin >> binaryRep[i];
+
+	int result = BinaryToDecimal(binaryRep, ARRAY_SIZE - 1);
+
+	cout << "The decimal value is " << result << endl;
+
+	return 0;
+
+}
+
+int BinaryToDecimal(char arr[], int endIndex)
+
+{
+
+	if (endIndex == 0)
+
+		return arr[endIndex] - '0';
+
+	else
+
+		return 2 * BinaryToDecimal(arr, endIndex - 1) + (arr[endIndex] - '0');
+
+}
